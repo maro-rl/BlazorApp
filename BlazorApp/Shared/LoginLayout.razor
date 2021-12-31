@@ -1,0 +1,14 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime JSRuntime
+
+<MudThemeProvider Theme="_currentTheme" />
+<MudSnackbarProvider />
+
+<div class="d-flex" style="width: 100%; height: 100vh; background-color: var(--mud-palette-background)">
+    @Body
+</div>
+
+@code
+{ 
+    private MudTheme _currentTheme = new BlazorApp.Themes.LigthTheme();
+}

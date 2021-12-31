@@ -1,0 +1,22 @@
+﻿@page "/"
+@page "/login"
+@layout LoginLayout
+
+<MudForm Style="height:100vh; width:100%; margin:0;" @ref="form">
+    <MudGrid Style="height:100vh; width:100%; margin:0;">
+        <MudItem xs="12" sm="12" Class="" Style="background-image: url(img/rizki-dwi-yd1wWWilf4o-unsplash.jpg); background-repeat: no-repeat; background-size: cover; background-position: center; " />
+            <MudPaper Elevation="5" Class="pa-8 rounded-lg" Width="95%" MaxWidth="500px" Height="500px" Style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; background: linear-gradient(0deg, rgba(34,193,195,0.5021358885351015) 0%, #ddd 50%, rgba(0,212,255,0.3536765047816002) 100%);">
+                    <MudText Typo="Typo.h4" Class="ma-4" Align="@Align.Center">Login</MudText>
+                    <MudItem xs="10" sm="10" md="8" Class="my-4 mt-8" Style="margin:auto; display:flex;">
+                        <MudTextField T="string" @bind-Value="@(credential.Email)" Label="Email" Required="true" Immediate="true" Validation="@(new Func<string, IEnumerable<string>>(ValidateUser))" HelperText="&nbsp;" Variant="Variant.Filled" Margin="Margin.Dense" InputType="InputType.Text" Class="mud-input-controll"></MudTextField>
+                    </MudItem>
+                    <MudItem xs="10" sm="10" md="8" Class="mt-6" Style="margin:auto; display:flex;">
+                        <MudTextField T="string" @bind-Value="@credential.Password" Required="true" Label="Password" Variant="Variant.Filled" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" Margin="Margin.Dense" InputType="@PasswordInput" OnAdornmentClick="ButtonTestclick" Validation="@(new Func<string, IEnumerable<string>>(ValidatePassword))"Immediate="true" HelperText="&nbsp;" />
+                    </MudItem>
+                    <MudText Typo="Typo.body2" Class="" Align="@Align.Center" Style="justify-content: center;" Color="Color.Error">@Messages</MudText>
+
+                    <MudButton OnClick="LogIn" Variant="Variant.Filled" Class="mt-16 rounded" Color="Color.Primary" Style="width: 50%; max-width: 500px; text-transform: none; font-size: larger; margin:auto; display:flex;">Login</MudButton>
+           </MudPaper>
+    </MudGrid>
+</MudForm>
+
